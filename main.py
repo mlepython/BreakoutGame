@@ -40,6 +40,7 @@ def play_game():
     score = Scoreboard(game_points)
     timer = Timer()
     while game_is_on:
+
         time.sleep(ball.move_speed)
         ball.move()
         screen.update()
@@ -70,6 +71,9 @@ def play_game():
             ball.bounce_x()
         if ball.ycor() > top_boundary - 20:
             ball.bounce_y()
+            if ball.top_boundary_count == 0:
+                paddle.shapesize(1, paddle.getturtle().shapesize()[1] * 0.5)
+                ball.top_boundary_count += 1
 
         if paddle.xcor() < left_boundary + paddle.paddle_size*10:
             paddle.goto(left_boundary + paddle.paddle_size*10, paddle.ycor())

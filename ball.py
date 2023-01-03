@@ -12,6 +12,7 @@ class Ball(Turtle):
         self.y_move = 5
         self.move_speed = 0.01
         self.bounce_count = 0
+        self.top_boundary_count = 0
         self.goto(position)
 
     def move(self):
